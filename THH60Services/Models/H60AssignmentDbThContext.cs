@@ -100,6 +100,9 @@ public partial class H60AssignmentDbThContext : DbContext
         {
             entity.HasKey(e => e.CartItemId);
 
+            entity.HasIndex(e => new { e.ShoppingCartId, e.ProductId })
+                .IsUnique();
+
             entity.HasOne(e => e.ShoppingCart)
                 .WithMany(e => e.CartItems)
                 .HasForeignKey(e => e.ShoppingCartId);

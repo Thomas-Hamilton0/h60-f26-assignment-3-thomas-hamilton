@@ -46,7 +46,8 @@ namespace THH60Services.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("ShoppingCartId");
+                    b.HasIndex("ShoppingCartId", "ProductId")
+                        .IsUnique();
 
                     b.ToTable("CartItems");
                 });
