@@ -1,6 +1,59 @@
-@THH60Services_HostAddress = http://localhost:5109
+@THH60Services_HostAddress = http://localhost:7777
 
-GET {{THH60Services_HostAddress}}/weatherforecast/
+GET {{THH60Services_HostAddress}}/api/products
 Accept: application/json
 
 ###
+GET {{THH60Services_HostAddress}}/api/shoppingcarts
+Accept: application/json
+
+###
+GET {{THH60Services_HostAddress}}/api/shoppingcarts/1
+Accept: application/json
+
+###
+GET {{THH60Services_HostAddress}}/api/shoppingcarts/customer/2
+Accept: application/json
+
+###
+POST {{THH60Services_HostAddress}}/api/shoppingcarts
+Content-Type: application/json
+
+{
+  "customerId": 3
+}
+
+###
+PUT {{THH60Services_HostAddress}}/api/shoppingcarts/1
+Content-Type: application/json
+
+{
+  "customerId": 2
+}
+
+###
+GET {{THH60Services_HostAddress}}/api/shoppingcarts/1/items
+Accept: application/json
+
+###
+POST {{THH60Services_HostAddress}}/api/shoppingcarts/1/items
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "quantity": 2
+}
+
+###
+PUT {{THH60Services_HostAddress}}/api/shoppingcarts/1/items/1
+Content-Type: application/json
+
+{
+  "quantity": 3
+}
+
+###
+DELETE {{THH60Services_HostAddress}}/api/shoppingcarts/1/items/1
+
+###
+DELETE {{THH60Services_HostAddress}}/api/shoppingcarts/1
