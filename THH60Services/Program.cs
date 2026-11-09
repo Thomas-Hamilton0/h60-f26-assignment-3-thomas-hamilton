@@ -30,6 +30,8 @@ builder.Services.AddDbContext<H60AssignmentDbThContext>(
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
+builder.Services.AddScoped<ICartItemRepository, CartItemRepository>();
 
 var app = builder.Build();
 
