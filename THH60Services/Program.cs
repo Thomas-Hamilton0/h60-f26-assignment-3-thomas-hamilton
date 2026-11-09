@@ -25,7 +25,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<H60AssignmentDbThContext>(
     options => options.UseSqlServer(
-        builder.Configuration.GetConnectionString("Assignment2DB")));
+        builder.Configuration.GetConnectionString("Assignment3DB")));
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();

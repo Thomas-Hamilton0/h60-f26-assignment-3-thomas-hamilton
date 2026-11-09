@@ -1,11 +1,11 @@
-# Heritage Reptile Supply — H60 Assignment 2
+# Heritage Reptile Supply — H60 Assignment 3
 
 ## Projects
 
 | Project | Description |
 | --- | --- |
 | `THH60Services` | ASP.NET Core ReST API for products, categories, and customers |
-| `THH60A02` | Store application (Identity, products, categories, and customers) |
+| `THH60A03` | Store application (Identity, products, categories, and customers) |
 | `THH60Customer` | Customer storefront (login, catalog browsing, and search) |
 
 ## Requirements
@@ -16,25 +16,25 @@
 
 ## Database configuration
 
-All three projects use the connection string named `Assignment2DB`. Update it in:
+All three projects use the connection string named `Assignment3DB`. Update it in:
 
-- `THH60A02/appsettings.json`
+- `THH60A03/appsettings.json`
 - `THH60Services/appsettings.json`
 - `THH60Customer/appsettings.json`
 
 Example connection string (use your SSMS connection details):
 
 ```text
-Server=localhost;Database=H60Assignment2DB_TH;User Id=sa;Password=YourPassword;TrustServerCertificate=True
+Server=localhost;Database=H60Assignment3DB_TH;User Id=sa;Password=YourPassword;TrustServerCertificate=True
 ```
 
 ## Services URL
 
-`THH60A02` and `THH60Customer` call the ReST API at `http://localhost:7777/`. Change `ServiceSettings:BaseUrl` in their `appsettings.json` files if needed.
+`THH60A03` and `THH60Customer` call the ReST API at `http://localhost:7777/`. Change `ServiceSettings:BaseUrl` in their `appsettings.json` files if needed.
 
 ## Database setup
 
-Use SSMS to create or connect to the `H60Assignment2DB_TH` database. Start `THH60Services` and `THH60A02` once from Visual Studio; they apply the EF Core migrations at startup, and the Store seeds the roles and test accounts. Start the Store before using the Customer app.
+Use SSMS to create or connect to the `H60Assignment3DB_TH` database. Start `THH60Services` and `THH60A03` once from Visual Studio; they apply the EF Core migrations at startup, and the Store seeds the roles and test accounts. Start the Store before using the Customer app.
 
 ## Running
 
