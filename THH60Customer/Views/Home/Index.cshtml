@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "About";
+}
+
+<div class="container">
+    <div class="p-4 mb-4 bg-white border rounded">
+        <h1 class="h3">Heritage Reptile Supply</h1>
+        <p class="text-muted mb-3">
+            Browse our reptiles, habitats, and supplies. We focus on healthy animals
+            and practical advice.
+        </p>
+        <a asp-controller="Catalog" asp-action="Index" class="btn btn-primary">
+            Shop the catalog
+        </a>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="h5">Reptiles</h2>
+                    <p class="text-muted mb-0">
+                        Snakes, lizards, and tortoises from trusted breeders.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="h5">Habitat</h2>
+                    <p class="text-muted mb-0">
+                        Terrariums, heating, and lighting for a healthy enclosure.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="h5">Supplies</h2>
+                    <p class="text-muted mb-0">
+                        Food, supplements, and the essentials for everyday care.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

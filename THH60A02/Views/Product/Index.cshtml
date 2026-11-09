@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>Products</h2>
+
+<p class="text-muted"> Manage products, inventory levels, and pricing information </p>
+
+<form method="get" asp-action="Index" class="d-flex gap-2 mb-3" style="max-width: 420px;">
+    <input type="search" name="search" value="@ViewData["Search"]" class="form-control"
+           placeholder="Search products" aria-label="Search products" />
+    <button type="submit" class="btn btn-primary">Search</button>
+    @if (!string.IsNullOrWhiteSpace(ViewData["Search"]?.ToString()))
+    {
+        <a asp-action="Index" class="btn btn-secondary">Clear</a>
+    }
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create Product</a>
+
+    <a asp-action="ProductsByCategory" class="btn btn-secondary">All Products by Category</a>
+
+    <a asp-action="ProductsForCategory" class="btn btn-secondary">Products in Selected Category</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Stock</th>
+            <th>Sell Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr class="@(product.Stock == 0 ? "table-danger" : "")">
+                <td>@product.Description</td>
+                <td>@product.Stock</td>
+                <td>@product.SellPrice</td>
+                <td>
+                    <div class="d-flex flex-wrap gap-1">
+                        <a asp-action="Details" asp-route-id="@product.ProductId" class="btn btn-sm btn-outline-secondary">Details</a>
+                        <a asp-action="Edit" asp-route-id="@product.ProductId" class="btn btn-sm btn-outline-secondary">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@product.ProductId" class="btn btn-sm btn-outline-secondary">Delete</a>
+                        <a asp-action="UpdateStock" asp-route-id="@product.ProductId" class="btn btn-sm btn-outline-secondary">Stock</a>
+                        @if (User.IsInRole("manager"))
+                        {
+                            <a asp-action="UpdatePrices" asp-route-id="@product.ProductId" class="btn btn-sm btn-primary">Prices</a>
+                        }
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+﻿@model UpdatePricesViewModel
+
+@{
+    ViewData["Title"] = "Update Prices";
+}
+
+<h2>Update Prices</h2>
+
+<p class="text-muted">Modify the buy and sell prices for a product.</p>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="UpdatePrices" method="post">
+
+    <input type="hidden" asp-for="ProductId"/>
+
+    <div class="mb-3">
+        <label>Description</label>
+        <input asp-for="Description" class="form-control" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label>Buy Price</label>
+        <input asp-for="BuyPrice" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Sell Price</label>
+        <input asp-for="SellPrice" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

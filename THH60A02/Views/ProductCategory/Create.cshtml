@@ -1,0 +1,22 @@
+﻿@model ProductCategory
+
+@{
+    ViewData["Title"] = "Create Category";
+}
+
+<h2>Create Category</h2>
+
+<p class="text-muted">Add a new product category to the store.</p>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Create" method="post">
+
+    <div class="mb-3">
+        <label>Category</label>
+        <input asp-for="ProdCat" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+</form>

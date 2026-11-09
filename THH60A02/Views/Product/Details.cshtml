@@ -1,0 +1,48 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h2>Product Details</h2>
+
+<p class="text-muted">View detailed information about the selected product.</p>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Description</th>
+        <td>@Model.Description</td>
+    </tr>
+
+    <tr>
+        <th>Manufacturer</th>
+        <td>@Model.Manufacturer</td>
+    </tr>
+
+    <tr>
+        <th>Category</th>
+        <td>@Model.ProdCat.ProdCat</td>
+    </tr>
+
+    <tr>
+        <th>Stock</th>
+        <td>@Model.Stock</td>
+    </tr>
+
+    @if (User.IsInRole("manager"))
+    {
+        <tr>
+            <th>Buy Price</th>
+            <td>@Model.BuyPrice</td>
+        </tr>
+    }
+
+    <tr>
+        <th>Sell Price</th>
+        <td>@Model.SellPrice</td>
+    </tr>
+
+</table>
+
+<button type="button" class="btn btn-secondary" onclick="history.back();"> Back </button>

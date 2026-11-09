@@ -1,0 +1,21 @@
+@page
+@model RegisterModel
+
+@{
+    ViewData["Title"] = "Customer accounts";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card mt-4">
+            <div class="card-body p-4">
+                <h1 class="h4 mb-3">Customer accounts</h1>
+                <p class="text-muted">
+                    Customer accounts are created by the store. Please contact the store
+                    or sign in with the account provided to you.
+                </p>
+                <a asp-page="./Login" class="btn btn-primary w-100">Go to sign in</a>
+            </div>
+        </div>
+    </div>
+</div>

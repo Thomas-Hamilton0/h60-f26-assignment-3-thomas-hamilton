@@ -1,0 +1,70 @@
+﻿@model ProductCategoryProductsViewModel
+
+@{
+    ViewData["Title"] = "Products in Selected Category";
+}
+
+<h2>Browse Products by Category</h2>
+
+<p class="text-muted">View products for a selected category.</p>
+
+<form asp-action="ProductsForCategory" method="post">
+
+    <div class="mb-3">
+        <label>Category</label>
+
+        <select asp-for="CategoryId" class="form-control">
+
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category.CategoryId">@category.ProdCat</option>
+            }
+
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">View Products</button>
+
+</form>
+
+@if (Model.Products.Any())
+{
+    <table class="table mt-4">
+
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Sell Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var product in Model.Products)
+            {
+                <tr class="@(product.Stock == 0 ? "table-danger" : "")">
+
+                    <td>@product.Description</td>
+
+                    <td>@product.SellPrice</td>
+
+                    <td>
+                        <div class="d-flex flex-wrap gap-1">
+                            <a asp-action="Details" asp-route-id="@product.ProductId" class="btn btn-sm btn-outline-secondary">Details</a>
+                            <a asp-action="Edit" asp-route-id="@product.ProductId" class="btn btn-sm btn-outline-secondary">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@product.ProductId" class="btn btn-sm btn-outline-secondary">Delete</a>
+                            <a asp-action="UpdateStock" asp-route-id="@product.ProductId" class="btn btn-sm btn-outline-secondary">Stock</a>
+                            @if (User.IsInRole("manager"))
+                            {
+                                <a asp-action="UpdatePrices" asp-route-id="@product.ProductId" class="btn btn-sm btn-primary">Prices</a>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+}

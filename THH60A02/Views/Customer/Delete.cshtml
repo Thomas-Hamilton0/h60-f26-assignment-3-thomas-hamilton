@@ -1,0 +1,46 @@
+@model Customer
+
+@{
+    ViewData["Title"] = "Delete Customer";
+}
+
+<h2>Delete Customer</h2>
+
+<p class="text-muted">Review the customer information before permanently deleting it.</p>
+
+<div class="alert alert-danger">
+    This action cannot be undone. The customer's sign-in account will also be removed.
+</div>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<div class="mb-3">
+    <label class="form-label">Name</label>
+    <input value="@Model.LastName, @Model.FirstName" class="form-control" readonly />
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Email</label>
+    <input value="@Model.EmailAddress" class="form-control" readonly />
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Phone</label>
+    <input value="@Model.PhoneNumber" class="form-control" readonly />
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Province</label>
+    <input value="@Model.Province" class="form-control" readonly />
+</div>
+
+<p>Are you sure you want to delete this customer?</p>
+
+<form asp-action="Delete" method="post">
+
+    <input type="hidden" name="id" value="@Model.CustomerId" />
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+
+</form>
